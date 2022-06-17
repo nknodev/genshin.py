@@ -110,8 +110,8 @@ async def login_with_app(client: client.GeetestClient, account: str, password: s
     await runner.setup()
 
     site = web.TCPSite(runner, host="localhost", port=port)
-    print(f"Opened browser in http://localhost:{port}")  # noqa
-    webbrowser.open_new_tab(f"http://localhost:{port}")
+    
+
 
     await site.start()
 
