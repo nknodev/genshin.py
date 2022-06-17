@@ -7,7 +7,7 @@ import webbrowser
 
 import aiohttp
 from aiohttp import web
-
+import random
 from genshin.utility import geetest
 
 from . import client
@@ -108,9 +108,10 @@ async def login_with_app(client: client.GeetestClient, account: str, password: s
 
     runner = web.AppRunner(app)
     await runner.setup()
-
-    site = web.TCPSite(runner, host="localhost", port=port)
     
+    portr = random.randint(1000, 10000)
+    site = web.TCPSite(runner, host="localhost", port=portr)
+    print('opened on ' + portr)
 
 
     await site.start()
